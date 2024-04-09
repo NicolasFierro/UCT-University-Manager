@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}  
+Enfermeria
+{% endblock %}
+
+{% block content %}
+<div class="enfermeria">
+    <img src="{% static 'img/carrera_enfermeria.jpg' %}" alt="Enfermería" class="career-image">
+    <h2 class="career-title">Enfermería</h2>
+    <p class="texto-carrera">Descripción: La carrera de Enfermería forma a profesionales para brindar atención y cuidados de salud a individuos, familias y comunidades en diferentes contextos. Los estudiantes adquieren habilidades en atención directa al paciente, gestión de cuidados, prevención de enfermedades, y más, preparándolos para trabajar en hospitales, clínicas, centros de salud, y otros entornos de atención médica.</p>
+    <h3>Plan de Estudios</h3>
+    <ul>
+        <li>Semestre 1: Introducción a la enfermería, Fundamentos de salud</li>
+        <li>Semestre 2: Anatomía y fisiología, Farmacología básica</li>
+        <li>Semestre 3: Enfermería materno-infantil, Nutrición y dietética</li>
+        <li>Semestre 4: Enfermería geriátrica, Salud mental y psiquiatría</li>
+        <li>Semestre 5: Enfermería comunitaria, Ética y legislación en enfermería</li>
+        <li>Semestre 6: Enfermería quirúrgica, Investigación en salud</li>
+        <li>Semestre 7: Práctica profesional, Enfermería pediátrica</li>
+        <li>Semestre 8: Enfermería oncológica, Gestión de cuidados de enfermería</li>
+        <li>Semestre 9: Enfermería intensiva, Educación en salud</li>
+        <li>Semestre 10: Seminario de investigación, Enfermería en emergencias</li>
+    </ul>
+    <a href="{% url 'contacto' %}">Contacto</a><br>
+</div>
+{% endblock %}

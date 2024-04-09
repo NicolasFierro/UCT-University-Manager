@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}  
+Contaduria Publica
+{% endblock %}
+
+{% block content %}
+<div class="contabilidad">
+    <img src="{% static 'img/carrera_contaduria.jpg' %}" alt="Contaduría Pública" class="career-image">
+    <h2 class="career-title">Contaduría Pública</h2>
+    <p class="texto-carrera">Descripción: La carrera de Contaduría Pública prepara a profesionales para llevar registros financieros, realizar auditorías y asesorar en aspectos contables y fiscales. Los estudiantes estudian materias como contabilidad financiera, costos, auditoría, impuestos, y más, preparándolos para trabajar en empresas, firmas de auditoría, o como consultores independientes.</p>
+    <h3>Plan de Estudios</h3>
+    <ul>
+        <li>Semestre 1: Introducción a la contabilidad, Matemáticas financieras</li>
+        <li>Semestre 2: Contabilidad financiera, Costos y presupuestos</li>
+        <li>Semestre 3: Auditoría, Derecho tributario</li>
+        <li>Semestre 4: Contabilidad de gestión, Economía empresarial</li>
+        <li>Semestre 5: Auditoría avanzada, Finanzas corporativas</li>
+        <li>Semestre 6: Impuestos, Control interno</li>
+        <li>Semestre 7: Práctica profesional, Ética contable</li>
+        <li>Semestre 8: Contabilidad internacional, Planeación financiera</li>
+        <li>Semestre 9: Análisis financiero, Derecho laboral y seguridad social</li>
+        <li>Semestre 10: Seminario de investigación, Contabilidad gubernamental</li>
+    </ul>
+    <a href="{% url 'contacto' %}">Contacto</a><br>
+</div>
+{% endblock %}

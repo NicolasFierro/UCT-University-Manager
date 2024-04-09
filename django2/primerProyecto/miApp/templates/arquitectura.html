@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}  
+Arquitectura
+{% endblock %}
+
+{% block content %}
+<div class="arquitectura">
+    <img src="{% static 'img/carrera_arquitectura.jpg' %}" alt="Arquitectura" class="career-image">
+    <h2 class="career-title">Arquitectura</h2>
+    <p class="texto-carrera">Descripción: La carrera de Arquitectura forma a profesionales para diseñar y construir espacios habitables y funcionales, considerando aspectos estéticos, funcionales y técnicos. Los estudiantes adquieren habilidades en diseño arquitectónico, planificación urbana, gestión de proyectos, y más, preparándolos para trabajar en estudios de arquitectura, empresas constructoras, o como profesionales independientes.</p>
+    <h3>Plan de Estudios</h3>
+    <ul>
+        <li>Semestre 1: Introducción a la arquitectura, Dibujo técnico</li>
+        <li>Semestre 2: Historia de la arquitectura, Materiales y construcción</li>
+        <li>Semestre 3: Diseño arquitectónico, Estructuras</li>
+        <li>Semestre 4: Urbanismo, Instalaciones en edificaciones</li>
+        <li>Semestre 5: Diseño sostenible, Planificación urbana</li>
+        <li>Semestre 6: Gestión de proyectos, Arquitectura contemporánea</li>
+        <li>Semestre 7: Práctica profesional, Tecnología de la construcción</li>
+        <li>Semestre 8: Ética profesional, Restauración arquitectónica</li>
+        <li>Semestre 9: Diseño de interiores, Proyectos de gran escala</li>
+        <li>Semestre 10: Seminario de investigación, Arquitectura y sociedad</li>
+    </ul>
+    <a href="{% url 'contacto' %}">Contacto</a><br>
+</div>
+{% endblock %}

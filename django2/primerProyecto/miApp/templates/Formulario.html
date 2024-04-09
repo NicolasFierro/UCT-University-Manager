@@ -1,0 +1,15 @@
+{% extends 'layout.html' %}  <!-- Extiende el layout 'layout.html' -->
+
+{% block content %}  <!-- Inicia el bloque de contenido principal -->
+
+<h2>Agregar Carrera</h2>  <!-- Título de la página -->
+
+<form method="post">  <!-- Inicia el formulario -->
+    {% csrf_token %}  <!-- Token CSRF para proteger el formulario de ataques CSRF -->
+    
+    {{ form.as_p }}  <!-- Renderiza el formulario utilizando el método as_p para mostrar los campos del formulario de forma vertical -->
+    
+    <button type="submit">Agregar</button>  <!-- Botón para enviar el formulario -->
+</form>
+
+{% endblock %}  <!-- Cierra el bloque de contenido principal -->

@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}  <!-- Extiende el layout 'layout.html' -->
+
+{% load static %}  <!-- Carga los archivos estáticos -->
+
+{% block title %}  
+Lista de Articulos
+{% endblock %}  
+
+{% block content %}  
+
+<h2 class="tittle">Lista de Articulos</h2>  <!-- Título de la página -->
+{{ block.super }}  <!-- Renderiza el contenido del bloque 'content' del layout padre -->
+
+<div class="lista">  <!-- Inicia la sección de la lista de artículos -->
+    <ul>
+        {% for article in articulos %}  <!-- Itera sobre la lista de artículos -->
+        <li>
+            <strong>Codigo: </strong> {{ article.id }}  <!-- Muestra el ID del artículo -->
+            <br>
+            <strong>Titulo: </strong>{{ article.title }}  <!-- Muestra el título del artículo -->
+            <br>
+            <strong>Contenido: </strong>{{ article.content }}  <!-- Muestra el contenido del artículo -->
+            <br>
+            <strong>Estado: </strong>{{ article.public }}  <!-- Muestra el estado (publicado o privado) del artículo -->
+            
+            {% if article.public %}  <!-- Verifica si el artículo está publicado -->
+                <strong class="publicado">Publicado</strong>  <!-- Muestra "Publicado" si el artículo está publicado -->
+            {% else %}
+                <strong class="Privado">Privado</strong>  <!-- Muestra "Privado" si el artículo no está publicado -->
+            {% endif %}
+            
+            <br>
+            <strong>Fecha: </strong>{{ article.create_date }}  <!-- Muestra la fecha de creación del artículo -->
+            
+            <a href="{% url 'Borrar' article.id %}">Borrar</a>  <!-- Enlace para borrar el artículo -->
+        </li>
+        
+        <hr>  <!-- Línea horizontal para separar los artículos -->
+        {% endfor %}  <!-- Termina la iteración sobre los artículos -->
+
+    </ul>
+</div>  <!-- Cierra la sección de la lista de artículos -->
+
+{% endblock %} 

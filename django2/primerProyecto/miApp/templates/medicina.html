@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}  
+Medicina
+{% endblock %}
+
+{% block content %}
+<div class="Medicina">
+    <img src="{% static 'img/carrera_medicina.jpg' %}" alt="Medicina" class="career-image">
+    <h2 class="career-title">Medicina</h2>
+    <p class="texto-carrera">Descripción: La carrera de Medicina forma a profesionales de la salud para diagnosticar, tratar y prevenir enfermedades, así como para promover la salud y el bienestar. Los estudiantes adquieren conocimientos en anatomía, fisiología, patología, farmacología y práctica clínica, preparándolos para ejercer en diferentes especialidades médicas y áreas de investigación.</p>
+    <h3>Plan de Estudios</h3>
+    <ul>
+        <li>Semestre 1: Anatomía humana, Biología celular</li>
+        <li>Semestre 2: Fisiología humana, Bioquímica médica</li>
+        <li>Semestre 3: Histología, Patología general</li>
+        <li>Semestre 4: Farmacología, Microbiología</li>
+        <li>Semestre 5: Semiología médica, Epidemiología</li>
+        <li>Semestre 6: Medicina interna, Cirugía general</li>
+        <li>Semestre 7: Ginecología y obstetricia, Pediatría</li>
+        <li>Semestre 8: Psiquiatría, Medicina de emergencia</li>
+        <li>Semestre 9: Práctica profesional, Medicina preventiva</li>
+        <li>Semestre 10: Ética médica, Investigación médica</li>
+    </ul>
+    <a href="{% url 'contacto' %}">Contacto</a><br>
+</div>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block title %}  
+Derecho
+{% endblock %}
+
+{% block content %}
+<div class="derecho">
+    <img src="{% static 'img/carrera_derecho.jpg' %}" alt="Derecho" class="career-image">
+    <h2 class="career-title">Derecho</h2>
+    <p class="texto-carrera">Descripción: El programa de Derecho proporciona conocimientos sobre el sistema legal y habilidades para analizar y resolver problemas legales. Los estudiantes estudian materias como derecho civil, penal, laboral, internacional, y más, preparándolos para ejercer como abogados, jueces, fiscales, o en áreas relacionadas con el derecho público o privado.</p>
+    <h3>Plan de Estudios</h3>
+    <ul>
+        <li>Semestre 1: Introducción al derecho, Derecho civil</li>
+        <li>Semestre 2: Derecho penal, Derecho constitucional</li>
+        <li>Semestre 3: Derecho laboral, Derecho administrativo</li>
+        <li>Semestre 4: Derecho internacional, Derecho mercantil</li>
+        <li>Semestre 5: Derecho fiscal, Derecho procesal</li>
+        <li>Semestre 6: Ética jurídica, Derecho ambiental</li>
+        <li>Semestre 7: Práctica forense, Derechos humanos</li>
+        <li>Semestre 8: Derecho de familia, Derecho de propiedad intelectual</li>
+        <li>Semestre 9: Práctica profesional, Derecho penal especial</li>
+        <li>Semestre 10: Derecho internacional privado, Derecho comparado</li>
+    </ul>
+    <a href="{% url 'contacto' %}">Contacto</a><br>
+</div>
+{% endblock %}

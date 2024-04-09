@@ -1,0 +1,104 @@
+{% extends 'layout.html' %}  {# Hereda el layout base para esta página #}
+{% load static %}  {# Carga los archivos estáticos como imágenes #}
+
+{% block content %}
+    <!-- Encabezado principal de la página -->
+    <h1>Carreras Universitarias</h1>
+<br>
+    <!-- Introducción a las carreras universitarias -->
+    <p>Explora nuestras carreras y descubre tu pasión:</p>
+<br>
+<div class="main-container">
+    <!-- Sección para la carrera de Ingeniería Informática -->
+    <div class="career-container">
+        <img src="{% static 'img/ingenieria_de_sistemas.jpg' %}" alt="Ingeniería Informática" class="career-image">
+        <br>
+        <h2 class="texto-carrera">Ingeniería Informática</h2>
+        <p class="texto-carrera">Descripción: Este programa de ingeniería informática prepara a los estudiantes para diseñar, desarrollar y gestionar sistemas de información.</p>
+        <p class="texto-carrera">Duración: 5 años</p>
+        <p class="texto-carrera">Créditos: 160</p>
+        <a href="{% url 'ingenieria_informatica' %}">Más información</a><br>
+
+
+    </div>
+
+    <!-- Sección para la carrera de Administración de Empresas -->
+    <div class="career-container">
+        <img src="{% static 'img/Administracion_de_empresas.jpg' %}" alt="Administración de Empresas" class="career-image">
+        <br>
+        <h2 class="texto-carrera">Administración de Empresas</h2>
+        <p class="texto-carrera">Descripción: Este programa de administración de empresas forma a profesionales capacitados para dirigir y gestionar organizaciones en el sector público y privado.</p>
+        <p class="texto-carrera">Duración: 4 años</p>
+        <p class="texto-carrera">Créditos: 140</p>
+        <a href="{% url 'administracion_empresas' %}">Más información</a><br>
+    </div>
+
+    <!-- Sección para la carrera de Psicología -->
+    <div class="career-container">
+        <img src="{% static 'img/Psicologia.jpg' %}" alt="Psicología" class="career-image">
+        <br>
+        <h2 class="texto-carrera">Psicología</h2>
+        <p class="texto-carrera">Descripción: La carrera de Psicología proporciona conocimientos sobre el comportamiento humano y las emociones, así como habilidades para la evaluación y el tratamiento psicológico.</p>
+        <p class="texto-carrera">Duración: 5 años</p>
+        <p class="texto-carrera">Créditos: 150</p>
+        <a href="{% url 'psicologia' %}">Más información</a><br>
+    </div>
+
+    <!-- Sección para la carrera de Medicina -->
+    <div class="career-container">
+        <img src="{% static 'img/medicina.jpg' %}" alt="Medicina" class="career-image">
+        <br>
+        <h2 class="texto-carrera">Medicina</h2>
+        <p class="texto-carrera">Descripción: La carrera de Medicina forma a profesionales de la salud para diagnosticar, tratar y prevenir enfermedades, así como para promover la salud y el bienestar.</p>
+        <p class="texto-carrera">Duración: 6 años</p>
+        <p class="texto-carrera">Créditos: 200</p>
+        <a href="{% url 'medicina' %}">Más información</a><br>
+    </div>
+
+    <!-- Sección para la carrera de Derecho -->
+    <div class="career-container">
+        <img src="{% static 'img/derecho.jpg' %}" alt="Derecho" class="career-image">
+        <br>
+        <h2 class="texto-carrera">Derecho</h2>
+        <p class="texto-carrera">Descripción: El programa de Derecho proporciona una profunda comprensión del sistema legal, abarcando tanto el derecho público como el privado.</p>
+        <p class="texto-carrera">Duración: 5 años</p>
+        <p class="texto-carrera">Créditos: 160</p>
+        <a href="{% url 'derecho' %}">Más información</a><br>
+    </div>
+
+    <!-- Sección para la carrera de Arquitectura -->
+    <div class="career-container">
+        <img src="{% static 'img/arquitectura.jpg' %}" alt="Arquitectura" class="career-image">
+        <br>
+        <h2 class="texto-carrera">Arquitectura</h2>
+        <p class="texto-carrera">Descripción: La carrera de Arquitectura forma a profesionales para diseñar y construir espacios habitables y funcionales, considerando aspectos estéticos, funcionales y técnicos.</p>
+        <p class="texto-carrera">Duración: 5 años</p>
+        <p class="texto-carrera">Créditos: 160</p>
+        <a href="{% url 'arquitectura' %}">Más información</a><br>
+    </div>
+
+    <!-- Sección para la carrera de Contaduría Pública -->
+    <div class="career-container">
+        <img src="{% static 'img/Contaduría_Pública.jpg' %}" alt="Contaduría Pública" class="career-image">
+        <br>
+        <h2 class="texto-carrera">Contaduría Pública</h2>
+        <p class="texto-carrera">Descripción: La carrera de Contaduría Pública prepara a profesionales para llevar registros financieros, realizar auditorías y asesorar en aspectos contables y fiscales.</p>
+        <p class="texto-carrera">Duración: 4 años</p>
+        <p class="texto-carrera">Créditos: 140</p>
+        <a href="{% url 'contaduria_publica' %}">Más información</a><br>
+    </div>
+
+    <!-- Sección para la carrera de Enfermería -->
+    <div class="career-container">
+        <img src="{% static 'img/enfermeria.jpg' %}" alt="Enfermería" class="career-image">
+        <br>
+        <h2 class="texto-carrera">Enfermería</h2>
+        <p class="texto-carrera">Descripción: La carrera de Enfermería forma a profesionales para brindar atención y cuidados de salud a individuos, familias y comunidades en diferentes contextos.</p>
+        <p class="texto-carrera">Duración: 4 años</p>
+        <p class="texto-carrera">Créditos: 140</p>
+        <a href="{% url 'enfermeria' %}">Más información</a><br>
+    </div>
+</div>
+{% endblock %}
+
+
