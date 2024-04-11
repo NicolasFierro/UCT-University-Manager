@@ -19,6 +19,8 @@ from django.urls import path
 from miApp import views
 from django.conf import settings
 import miApp.views 
+from miApp.views import student_dashboard, professor_dashboard, admin_dashboard
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # para acceder al administrador de Django
@@ -61,6 +63,10 @@ urlpatterns = [
     path('arquitectura/', views.arquitectura, name='arquitectura'),
     path('contaduria_publica/', views.contaduria_publica, name='contaduria_publica'),
     path('enfermeria/', views.enfermeria, name='enfermeria'),
+    path('logout/', views.logout, name = 'logout'),
+    path('student/dashboard/', student_dashboard, name='student_dashboard'),
+    path('professor/dashboard/', professor_dashboard, name='professor_dashboard'),
+    path('admin/dashboard/', admin_dashboard, name='admin_dashboard'),
 ]
 
 if settings.DEBUG:

@@ -2,6 +2,8 @@ from django import forms
 from django.core import validators
 from .models import Careers
 from .models import Materia
+from .models import Register
+
 class FormArticulo(forms.Form):
     title = forms.CharField(
         label="Titulo",
@@ -36,21 +38,17 @@ class FormArticulo(forms.Form):
         label='¿publicado?',
         choices=public_options)
 
-class CreateUserForm(forms.Form):
-    username = forms.CharField(max_length=100)
-    password = forms.CharField(widget=forms.PasswordInput)
-    confirm_password = forms.CharField(widget=forms.PasswordInput)
-    phone = forms.CharField(max_length=20)
-    role = forms.ChoiceField(choices=[('student', 'Estudiante'), ('teacher', 'Maestro'), ('admin', 'Administrador')])
-
 class LoginForm(forms.Form):
     username = forms.CharField(label='Nombre de usuario')
     password = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
 
 class CreateUserForm(forms.Form):
     username = forms.CharField(label='Nombre de usuario')
+    lastname = forms.CharField(label='Apellidos')
+    email = forms.EmailField(label='Correo electronico')
     password = forms.CharField(label='Contraseña', widget=forms.PasswordInput)
     confirm_password = forms.CharField(label='Confirmar contraseña', widget=forms.PasswordInput)
+    phone =forms.IntegerField(label='Telefono')
 
 class ForgotPasswordForm(forms.Form):
     username = forms.CharField(label='Nombre de usuario')
