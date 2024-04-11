@@ -12,9 +12,6 @@ from django.contrib.auth.models import Group
 from django.db.models.signals import post_migrate
 from django.dispatch import receiver
 from .forms import AgregarMateriaForm
-from django.contrib.auth import authenticate, login , logout
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required, user_passes_test
 
 # Create your views here.
 layout="""
@@ -267,16 +264,24 @@ def create_user(request):
         form = CreateUserForm(request.POST)
         if form.is_valid():
             username = form.cleaned_data['username']
-            lastname = form.cleaned_data['lastname']
-            email = form.cleaned_data['email']
             password = form.cleaned_data['password']
-            confirm_password = form.cleaned_data['confirm_password']
             phone = form.cleaned_data['phone']
-
+            confirm_password = form.cleaned_data['confirm_password']
+            role = form.cleaned_data['role']  # Obtener el rol seleccionado
 
             if password == confirm_password:
                 # Tu usuario será creado si todos los campos son llenados y tus contraseñas coinciden
                 user = User.objects.create_user(username=username, password=password)
+
+                # Asignar al grupo correspondiente
+                if role == 'student':
+                    group = Group.objects.get(name='student')
+                elif role == 'teacher':
+                    group = Group.objects.get(name='teacher')
+                elif role == 'admin':
+                    group = Group.objects.get(name='admin')
+                
+                user.groups.add(group)
 
                 # Aquí podrías agregar lógica adicional si es necesario
 
@@ -289,25 +294,7 @@ def create_user(request):
     return render(request, 'create_user.html', {'form': form})
 
 def login(request):
-    if request.method == "POST":
-
-        username = request.POST.get("username")
-        password = request.POST.get("password")
-
-        user = authenticate(request, username=username , password=password)
-        
-        if user is not None:
-            login(request, user)
-            return redirect("inicio")
-        else:
-            messages.warning(request, "Su usuario o contraseña no coinciden")
-
     return render(request, 'login.html')
-
-def logout(request):
-    logout(request)
-    return redirect('login')
-
 
 def create_groups(sender, **kwargs):
     Group.objects.get_or_create(name='student')
@@ -407,28 +394,3 @@ def contaduria_publica(request):
 
 def enfermeria(request):
     return render(request, 'enfermeria.html')
-
-def is_student(user):
-    return user.is_authenticated and hasattr(user, 'loginstudent')
-
-def is_professor(user):
-    return user.is_authenticated and hasattr(user, 'profesor')
-
-def is_admin(user):
-    return user.is_authenticated and hasattr(user, 'loginadmins')
-
-@login_required
-@user_passes_test(is_student)
-def student_dashboard(request):
-    return render(request, 'student_dashboard.html')
-
-@login_required
-@user_passes_test(is_professor)
-def professor_dashboard(request):
-    return render(request, 'professor_dashboard.html')
-
-@login_required
-@user_passes_test(is_admin)
-def admin_dashboard(request):
-    return render(request, 'admin_dashboard.html')
-

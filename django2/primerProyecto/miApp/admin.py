@@ -6,5 +6,3 @@ admin.site.register(LoginStudent)
 admin.site.register(LoginAdmins)
 admin.site.register(Register)
 admin.site.register(Careers)
-
-

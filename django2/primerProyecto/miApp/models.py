@@ -3,7 +3,7 @@ from datetime import datetime
 # Create your models here.
 class Article(models.Model):
     userName = models.CharField(max_length=150)
-    email = models.EmailField(max_length=200, blank=True, null=True)  # Permitir campo nulo
+    email = models.EmailField(max_length=200, blank=True, null=True)
     password = models.TextField()
     phone = models.BooleanField()
 
@@ -18,10 +18,8 @@ class Category(models.Model):
 
 class Register(models.Model):
     userName = models.CharField(max_length=150)
-    lastName =models.CharField(max_length=150)
-    email = models.EmailField(max_length=200)
+    email = models.EmailField(max_length=200),
     password = models.CharField(max_length=30)
-    password2 = models.CharField(max_length=30)
     phone = models.IntegerField()
 
 class LoginStudent(models.Model):
@@ -37,8 +35,6 @@ class Careers(models.Model):
     nameClass = models.CharField(max_length=100, verbose_name="Nombre de la Carrera")
     durationClass = models.IntegerField(verbose_name="Duración en Semestres")
     creditClass = models.IntegerField(verbose_name="Créditos")
-
-
 
     class Meta:
         verbose_name = "Carrera"
