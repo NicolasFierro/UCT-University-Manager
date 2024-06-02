@@ -47,6 +47,13 @@
             </li>
             
             <!-- Opciones para iniciar sesión, crear un usuario y recuperar contraseña -->
+            {% if request.user.is_authenticated %}
+            <ul class="navbar-nav align-right">
+                <li>
+                    <a href="{% url 'logout'%}">cerrar sesion</a>
+                </li>
+            </ul>
+            {% else %}
             <ul class="navbar-nav align-right">
                 <li>
                     <a href="{% url 'login'%}">Inicio de Sesión</a>
@@ -54,9 +61,7 @@
                 <li>
                     <a href="{% url 'register'%}">Crear usuario</a>
                 </li>
-                <li>
-                    {% comment %} <a href="{% url 'forgot_password'%}">Recuperar Contraseña</a> {% endcomment %}
-                </li>
+            {% endif %}
             </ul>
         </ul>
     </nav>
