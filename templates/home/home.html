@@ -1,0 +1,51 @@
+{% extends 'layout/layout.html' %}  {# Extiende del archivo 'layout.html' para heredar su estructura y estilos #}
+
+{% load static %}  {# Carga los archivos estáticos, como CSS y JavaScript #}
+
+{% block title %}  {# Define el título de la página #}
+    Universidad CEICOTOL
+{% endblock %}
+
+{% block content %}  {# Define el contenido principal de la página #}
+    
+    <div class="jumbotron">  {# Sección principal con un título y una breve descripción de la universidad #}
+        <h1>Bienvenido a la Universidad CEICOTOL Sede tolima</h1>
+        <p>Somos una institución comprometida con la excelencia académica y la formación integral de nuestros estudiantes.</p>
+        <a href="{% url 'QuienesSomos' %}">Quieres saber mas</a>  {# Enlace para obtener más información sobre la universidad #}
+    </div>
+
+    <div class="row">  {# Sección que contiene dos columnas: Programas Académicos y Noticias y Eventos #}
+        
+        <div class="col-md-6">  {# Primera columna: Programas Académicos #}
+            <h2>Programas Académicos</h2>
+            <ul>
+                <p>Nuestra universidad ofrece una amplia gama de programas académicos diseñados para preparar a nuestros estudiantes para los desafíos del mundo actual. Desde ingeniería y tecnología hasta ciencias sociales y humanidades, nuestros programas están cuidadosamente diseñados para brindar una educación integral que combine teoría y práctica. Con un enfoque en la innovación, la excelencia académica y la relevancia profesional, nuestros estudiantes se gradúan listos para enfrentar los desafíos del mercado laboral global y contribuir de manera significativa a la sociedad.<p>
+                <a href="{% url 'carreras' %}">Carreras</a>  {# Enlace para ver las carreras disponibles #}
+            </ul>
+        </div>
+
+        <div class="col-md-6">  {# Segunda columna: Noticias y Eventos #}
+            <h2>Noticias y Eventos</h2>
+            <div class="card">
+                <img src="{% static '/img/Edificio_de_ingenieria.png' %}" class="card-img-top" alt="Imagen de la noticia">  {# Imagen asociada a la noticia #}
+                <div class="card-body">
+                    <h5 class="card-title">Inauguración del Nuevo Edificio de Ingeniería</h5>  {# Título de la noticia #}
+                    <p class="card-text">Nos complace anunciar la inauguración del nuevo edificio de Ingeniería, equipado con laboratorios de última generación y espacios de estudio innovadores.</p>  {# Descripción breve de la noticia #}
+                    <a href="{% url 'noticias' %}" class="btn btn-primary">Leer más</a>  {# Enlace para leer más sobre la noticia #}
+                </div>
+            </div>
+            <!-- Agrega más noticias o eventos destacados según sea necesario -->
+        </div>
+
+    </div>
+
+    <div class="row">  {# Sección con enlaces de interés #}
+        <div class="col-md-12">
+            <h2>Enlaces de Interés</h2>
+            <ul>
+                <a href="{% url 'contacto' %}">Contacto</a><br>  {# Enlace para ir a la página de contacto #}
+            </ul>
+        </div>
+    </div
+
+{% endblock %}

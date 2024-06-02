@@ -1,0 +1,64 @@
+{% extends 'layout/layout.html' %}  <!-- Extiende el layout base 'layout.html' -->
+
+{% load static %}  <!-- Carga los archivos estáticos como CSS, JavaScript, etc. -->
+
+<title>{% block title %}Contacto{% endblock %}</title>  <!-- Define el título de la página -->
+
+{% block content %}  
+
+    <br>
+    <center><h1>Contacto</h1></center>  <!-- Muestra un título centrado en la página -->
+
+    <br>
+    <form id="contacto" method="POST">  <!-- Inicia el formulario con el método POST -->
+
+        <!-- Campo para ingresar el nombre -->
+        <label for="nombre">Nombre:</label><br>
+        <input type="text" id="nombre" name="nombre" required><br>
+
+        <!-- Campo para ingresar el email -->
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <br>
+
+        <!-- Selección de carrera que desea aplicar -->
+        <label for="carrera">Carrera que desea aplicar:</label><br>
+        <select id="carrera" name="carrera" required>
+            <option value="">Seleccione una carrera</option>
+            <!-- Lista de opciones de carrera -->
+            <option value="Carrera 1">Ingeniería Informática</option>
+            <!-- ... -->
+            <option value="Carrera 8">Enfermería</option>
+        </select>
+        <br><br>
+
+        <!-- Botón para enviar el formulario -->
+        <input type="submit" value="Enviar">
+
+    </form>
+
+    <!-- Script para mostrar notificaciones usando SweetAlert -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script>
+        // Capturar el formulario
+        const form = document.getElementById('contact-form');
+
+        // Agregar evento de envío del formulario
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevenir el envío del formulario por defecto
+
+            // Aquí iría el código para enviar el formulario usando AJAX o realizar otras operaciones necesarias
+
+            // Mostrar la notificación con SweetAlert
+            swal("¡Gracias por tu mensaje!", "Serás contactado pronto para enviarle el plan de estudios.", "success")
+                .then((value) => {
+                    // Redireccionar al usuario a la página de inicio u otra página según sea necesario
+                    window.location.href = "/";
+                });
+        });
+    </script>
+
+{% endblock %}  
+
+
