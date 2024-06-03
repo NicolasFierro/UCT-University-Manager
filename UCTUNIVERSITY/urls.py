@@ -25,6 +25,5 @@ urlpatterns = [
     path('carreras/', TemplateView.as_view(template_name ='home/carreras.html'), name='carreras'),
     path('contacto/', TemplateView.as_view(template_name ='home/contacto.html'), name='contacto'),
     path('noticias/', TemplateView.as_view(template_name ='home/noticias.html'), name='noticias'),
-    path('', include('apps.auth.urls')),
-
+    path('', include('apps.user.urls')),
 ]
