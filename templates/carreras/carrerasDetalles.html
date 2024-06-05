@@ -1,0 +1,31 @@
+{% extends 'layout/layout.html' %}  {# Hereda el layout base para esta página #}
+{% load static %}  
+ {# Carga los archivos estáticos como imágenes #}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <!-- Encabezado principal de la página -->
+    <h1>Detalles de la carrera</h1>
+<br>
+    <!-- Introducción a las carreras universitarias -->
+    <p>Explora nuestras carreras y descubre tu pasión:</p>
+<br>
+<div class="main-container">
+    <!-- Sección para la carrera de Ingeniería Informática -->
+   
+    <div class="career-container">
+        
+        <img src="{{carrerasDetalle.imagenesCarrera.url}}" alt="{{carrerasDetalle.NombreCarrera}}" class="career-image">
+
+        <h2 class="texto-carrera">{{ carrerasDetalle.NombreCarrera }}</h2>
+        <p class="texto-carrera">Descripcion: {{carrerasDetalle.DescripcionCarrera}}</p>
+        <p class="texto-carrera">Duración: {{carrerasDetalle.DuracionCarrera}}</p>
+        <p class="texto-carrera">Créditos: {{carrerasDetalle.CostoCarrera}} COP</p>
+        {% comment %} <a href="{% url 'ingenieria_informatica' %}">Más información</a><br> {% endcomment %}
+    
+    
+    </div>
+  
+{% endblock %}
+
+
