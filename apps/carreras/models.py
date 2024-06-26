@@ -10,6 +10,8 @@ class Carreras(models.Model):
     creacionCarrera = models.DateTimeField(auto_now_add=True, verbose_name="Creacion de la carrea")
     imagenesCarrera = models.ImageField(_("Imagen de la carrera"), upload_to='Carreras/')
 
+    def __str__(self):
+        return self.NombreCarrera
 
    
 

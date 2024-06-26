@@ -1,0 +1,36 @@
+{% extends 'layout/layout.html' %}  {# Hereda el layout base para esta página #}
+{% load static %} 
+
+{% block content %}
+  <h1>Seleccionar Materias</h1>
+  <form method="post" id="materias-form">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Seleccionar</button>
+  </form>
+  
+  <h2>Materias Seleccionadas</h2>
+  <div class="main-container">
+    {% for materia in materias_seleccionadas %}
+      <div class="career-container">
+        <h2>{{ materia.NombreMateria }}</h2>
+        <img src={{materia.imagenesMateria.url}} alt={{materia.NombreMateria}}>
+        <p>{{materia.DescripcionMateria}}</p>
+        <a href={% url "dictar_materia" materia.pk %}>dictar esta materia</a>
+
+      </div>
+    {% endfor %}
+  </div>
+
+  <script>
+    document.getElementById('id_seleccionar_todas').addEventListener('change', function() {
+      if (this.checked) {
+        document.getElementById('materias-form').submit();
+      }
+    });
+
+    document.getElementById('id_materias').addEventListener('change', function() {
+      document.getElementById('materias-form').submit();
+    });
+  </script>
+{% endblock %}

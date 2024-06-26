@@ -8,6 +8,9 @@
     <!-- Incluye la hoja de estilos CSS y el icono de la página desde los archivos estáticos -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
     <link rel="icon" href="{% static 'icons/logo.png' %}"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     
     <title>
         {% block title %}
@@ -37,41 +40,40 @@
                 <a href="{% url 'carreras' %}">Carreras</a>
             </li>
             <li>
-                <a href="{% url 'QuienesSomos' %}">Quienes Somos</a>
+                <a href="{% url 'materias' %}">Materias</a>
             </li>
+            
+            <li><a href="{% url 'profesores' %}">Profesores</a></li>
+    
             <li>
-                <a href="{% url 'contacto' %}">Contacto</a>
+                <a href="{% url 'QuienesSomos' %}">Quienes Somos</a>
             </li>
             <li> 
                 <a href="{% url 'noticias' %}">Noticias</a>
             </li>
+            {% if user.is_authenticated and user.profesor %}
+            <li><a href="{% url 'seleccionar_materias' %}">Seleccionar Materias</a></li>
             
-            <!-- Opciones para iniciar sesión, crear un usuario y recuperar contraseña -->
-            {% if request.user.is_authenticated %}
-            <ul class="navbar-nav align-right">
-                <li>
-                    <a href="{% url 'logout'%}">cerrar sesion</a>
-                </li>
-            </ul>
+          {% endif %}
+            {% if user.is_authenticated %}
+            <li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
             {% else %}
             <ul class="navbar-nav align-right">
                 <li>
                     <a href="{% url 'login'%}">Inicio de Sesión</a>
                 </li>
-                <li>
-                    <a href="{% url 'register'%}">Crear usuario</a>
-                </li>
-            {% endif %}
+                <li><a href="{% url 'register'%}">Crear usuario</a></li>
+          {% endif %}
+          <!-- Mostrar enlace para profesores autenticados -->
+          
+          <!-- Mostrar enlace para iniciar sesión como profesor si no está autenticado como profesor -->
+          
+      
             </ul>
         </ul>
     </nav>
     
-    <!-- Barra decorativa que separa el contenido de la página -->
-    <div class="barra">
-        <span class="izq"></span>
-        <span class="barra"></span>
-        <span class="der"></span>
-    </div>
+
     
     <!-- Contenido principal de la página, que puede ser sobrescrito en las páginas que heredan este layout -->
     <div id="content">
@@ -87,6 +89,20 @@
     <footer>
         Universidad Ceicotol Tolima &copy; Enseñando un mejor futuro -{%now 'd/m/Y h:m'%}
     </footer>
+
+    <script>
+        console.log({{user.profesor}})
+    </script>
+
+    <script>
+        {% if messages %}
+            $(document).ready(function() {
+                {% for message in messages %}
+                    toastr["{{ message.tags }}"]("{{ message }}");
+                {% endfor %}
+            });
+        {% endif %}
+    </script>
 </body>
 </html>
 

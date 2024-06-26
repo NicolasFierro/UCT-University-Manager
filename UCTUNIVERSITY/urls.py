@@ -24,10 +24,11 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', TemplateView.as_view(template_name ='home/home.html'), name='home'),
     path('quienesSomos/', TemplateView.as_view(template_name ='home/quienesSomos.html'), name='QuienesSomos'),
-    path('contacto/', TemplateView.as_view(template_name ='home/contacto.html'), name='contacto'),
     path('noticias/', TemplateView.as_view(template_name ='home/noticias.html'), name='noticias'),
     path('', include('apps.user.urls')),
-    path('', include('apps.carreras.urls'))
+    path('', include('apps.carreras.urls')),
+    path('', include('apps.materias.urls')),
+    path("", include("apps.profesores.urls")),
 ]
 
 

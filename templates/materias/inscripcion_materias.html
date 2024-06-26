@@ -1,0 +1,33 @@
+{% extends 'layout/layout.html' %}  {# Hereda el layout base para esta página #}
+{% load static %}  
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <title>Inscripción a Materias</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+</head>
+<body>
+    <h1>Inscripción a Materias</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Inscribirse</button>
+    </form>
+
+    <script>
+        {% if messages %}
+            $(document).ready(function() {
+                {% for message in messages %}
+                    toastr["{{ message.tags }}"]("{{ message }}");
+                {% endfor %}
+            });
+        {% endif %}
+    </script>
+</body>
+
+{% endblock content %}

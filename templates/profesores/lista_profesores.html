@@ -1,0 +1,34 @@
+{% extends 'layout/layout.html' %}  {# Hereda el layout base para esta página #}
+{% load static %} 
+
+
+{% block content %}
+
+<h1>Carreras Universitarias</h1>
+<br>
+    <!-- Introducción a las carreras universitarias -->
+    <p>Explora nuestras carreras y descubre tu pasión:</p>
+<br>
+<div class="main-container">
+    <!-- Sección para la carrera de Ingeniería Informática -->
+    {% for profesor in profesores %}
+    <div class="career-container">
+        <a href="{% url "profesor_detalle" profesor.pk %}"> 
+            {% if profesor.foto %}
+            
+            <img src="{{profesor.foto.url}}" alt="{{profesor.nombre}}" class="career-image">
+            {% else %}
+            <img src="https://placehold.co/600x400" alt="{{profesor.nombre}}" class="career-image">
+            {% endif %}
+        </a>
+        <h2 class="texto-carrera">{{ profesor.nombre }} {{profesor.apellido}}</h2>
+        <p class="texto-carrera">Experiencia: {{profesor.experiencia}}</p>
+        <p class="texto-carrera">Correo: {{profesor.email}}</p>
+        <p class="texto-carrera">Especialidad: <br/> {{profesor.especialidad}}</p> 
+        {% comment %} <a href="{% url 'ingenieria_informatica' %}">Más información</a><br> {% endcomment %}
+    
+    
+    </div>
+    {% endfor %}
+
+{% endblock content %}

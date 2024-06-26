@@ -1,0 +1,26 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+<html>
+<head>
+    <title>Inscripción a Carrera</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Inscripción a {{ carrera }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Inscribirse</button>
+    </form>
+    {% if form.errors %}
+        <ul>
+            {% for field in form %}
+                {% for error in field.errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    {% endif %}
+    {% endblock %}
+</body>
+</html>

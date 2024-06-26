@@ -14,7 +14,7 @@
     <!-- Sección para la carrera de Ingeniería Informática -->
     {% for carrera in carreras %}
     <div class="career-container">
-        <a href="{% url "carrera detalle" carrera.pk %}">
+        <a href="{% url "carrera_detalle" carrera.pk %}">
         <img src="{{carrera.imagenesCarrera.url}}" alt="{{carrera.NombreCarrera}}" class="career-image">
         </a>
         <h2 class="texto-carrera">{{ carrera.NombreCarrera }}</h2>

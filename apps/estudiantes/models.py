@@ -6,9 +6,12 @@ from apps.materias.models import Materia
 
 
 class Estudiantes(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="user")
-    carrera = models.ForeignKey(Carreras, on_delete=models.CASCADE, related_name="carrera")
-    materia = models.ManyToManyField(Materia, related_name= "materia")
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name="estudiantes")
+    carrera = models.ForeignKey(Carreras, on_delete=models.CASCADE, related_name="estudiantes")
+    materia = models.ManyToManyField(Materia, related_name="estudiantes")
+    nombre = models.CharField(max_length=100)
+    apellido = models.CharField(max_length=100)
+    email = models.EmailField()
 
     def __str__(self):
         return self.user.username

@@ -1,0 +1,35 @@
+{% extends 'layout/layout.html' %}  {# Hereda el layout base para esta página #}
+{% load static %} 
+
+{% block content %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    {% if messages %}
+        $(document).ready(function() {
+            {% for message in messages %}
+                toastr["{{ message.tags }}"]("{{ message }}");
+            {% endfor %}
+        });
+    {% endif %}
+</script>
+<h1>Dictar materia</h1>
+<br>
+<p>Bienvenido profesor {{request.user.profesor.nombre}}</p>
+<br>
+<div class="detail_main-container">
+    <div class="detail_career-container">
+        <img src="{{ materia.imagenesMateria.url }}" alt="{{ manteria.NombreMateria }}" class="career-image">
+        <h2 class="texto-carrera">{{ materia.NombreMateria }}</h2>
+        <p class="texto-carrera">Descripcion: {{ materia.DescripcionMateria }}</p>
+        <p class="texto-carrera">Duración: {{ materia.duraccionMateria }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <button style="width: 220px; " class="button-register" type="submit">Confirmar</button>
+        </form>
+    </div>
+</div>
+
+
+{% endblock content %}

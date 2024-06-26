@@ -1,0 +1,24 @@
+{% extends 'layout/layout.html' %}
+{% load static %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+<h1>Detalles de la carrera</h1>
+<br>
+<p>Explora nuestras carreras y descubre tu pasión:</p>
+<br>
+<div class="detail_main-container">
+    <div class="detail_career-container">
+        {% if profesor_detalle.foto %}
+            
+            <img src="{{profesor_detalle.foto.url}}" alt="{{profesor_detalle.nombre}}" class="career-image">
+            {% else %}
+            <img src="https://placehold.co/600x400" alt="{{profesor_detalle.nombre}}" class="career-image">
+            {% endif %}
+        <h2 class="texto-carrera">{{ profesor_detalle.nombre }} {{profesor_detalle.apellido}}</h2>
+        <p class="texto-carrera">experiencia: {{ profesor_detalle.expereciencia }}</p>
+        <p class="texto-carrera">Correo: {{ profesor_detalle.email }}</p>
+        <p class="texto-carrera">Especialidad: {{ profesor_detalle.especialidad }}</p>
+    </div>
+</div>
+{% endblock %}
