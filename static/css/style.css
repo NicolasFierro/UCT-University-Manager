@@ -87,13 +87,209 @@ nav ul li a:hover{
     background-color: #0f5971;
 }
 
-.box{
-    background: white;
-    width: 95%;
-    min-height: 930px;
-    padding: 20px;
-    border: 1px solid #0f5971;
-    margin: 0 auto;
+.box {
+    background-color: #f0f0f0; /* Color de fondo */
+    width: 95%; /* Ancho del contenedor */
+    min-height: 930px; /* Altura mínima */
+    padding: 20px; /* Espacio interior */
+    border: 2px solid #074f5f; /* Borde */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 0 auto; /* Centrar horizontalmente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+}
+
+.jumbotron {
+    background-color: #f8f9fa; /* Color de fondo */
+    padding: 30px; /* Espacio interior */
+    margin-bottom: 30px; /* Espacio exterior inferior */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    text-align: center; /* Alineación del texto */
+}
+
+.jumbotron h1 {
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 36px; /* Tamaño de fuente */
+    color: #074f5f; /* Color del texto */
+    margin-bottom: 20px; /* Espacio inferior */
+    text-decoration: underline; /* Subrayado */
+}
+
+.jumbotron p {
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 18px; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea */
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.jumbotron a {
+    display: inline-block; /* Bloque en línea */
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #ffffff; /* Color del texto */
+    background-color: #074f5f; /* Color de fondo */
+    padding: 10px 20px; /* Espacio interior */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones */
+}
+
+.jumbotron a:hover {
+    background-color: #053a46; /* Color de fondo al pasar el mouse */
+    color: #ffffff; /* Color del texto al pasar el mouse */
+}
+
+.row {
+    display: flex; /* Utiliza flexbox para alinear las columnas */
+    flex-wrap: wrap; /* Permite que las columnas se envuelvan en pantallas pequeñas */
+    margin: 0 -15px; /* Ajusta los márgenes para un buen espaciado entre columnas */
+}
+
+.col-md-6 {
+    flex: 1; /* Permite que las columnas ocupen el mismo espacio */
+    padding: 15px; /* Espacio interior para las columnas */
+    box-sizing: border-box; /* Incluye padding y border en el tamaño total del elemento */
+}
+
+.col-md-6 h2 {
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 28px; /* Tamaño de fuente */
+    color: #074f5f; /* Color del texto */
+    margin-bottom: 15px; /* Espacio inferior */
+    text-align: center; /* Alineación del texto */
+}
+
+.col-md-6 p {
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 16px; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea */
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+.col-md-6 a {
+    display: inline-block; /* Bloque en línea */
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #ffffff; /* Color del texto */
+    background-color: #074f5f; /* Color de fondo */
+    padding: 10px 20px; /* Espacio interior */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones */
+}
+
+.col-md-6 a:hover {
+    background-color: #053a46; /* Color de fondo al pasar el mouse */
+    color: #ffffff; /* Color del texto al pasar el mouse */
+}
+
+.card {
+    margin-top: 20px; /* Espacio superior */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    border-radius: 8px; /* Bordes redondeados */
+    overflow: hidden; /* Oculta contenido que se desborda */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transiciones suaves */
+    background-color: #ffffff; /* Fondo blanco */
+    border: 1px solid #e0e0e0; /* Borde delgado */
+}
+
+.card:hover {
+    transform: translateY(-5px); /* Eleva ligeramente la tarjeta al pasar el mouse */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada al pasar el mouse */
+}
+
+.card .card-img-top {
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
+    border-radius: 8px 8px 0 0; /* Bordes redondeados solo en las esquinas superiores */
+    display: block; /* Asegura que la imagen se muestre como un bloque */
+}
+
+.card .card-body {
+    padding: 20px; /* Espacio interior */
+    background-color: #f9f9f9; /* Fondo suave */
+}
+
+.card .card-body .card-title {
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 24px; /* Tamaño de fuente */
+    font-weight: bold; /* Texto en negrita */
+    color: #074f5f; /* Color del texto */
+    margin-bottom: 15px; /* Espacio inferior */
+    text-align: center; /* Alineación central del texto */
+    text-transform: uppercase; /* Transforma el texto a mayúsculas */
+    letter-spacing: 1px; /* Espaciado entre letras */
+}
+
+.card .card-body .card-text {
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 16px; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea */
+    color: #333; /* Color del texto */
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+.card .card-body .btn-primary {
+    display: inline-block; /* Bloque en línea */
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #ffffff; /* Color del texto */
+    background-color: #074f5f; /* Color de fondo */
+    padding: 10px 20px; /* Espacio interior */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones */
+}
+
+.card .card-body .btn-primary:hover {
+    background-color: #053a46; /* Color de fondo al pasar el mouse */
+    color: #ffffff; /* Color del texto al pasar el mouse */
+}
+
+
+
+.card-img-top {
+    width: 100%; /* Ancho completo */
+    height: auto; /* Altura automática */
+    border-bottom: 1px solid #ddd; /* Borde inferior */
+}
+
+.card-body {
+    padding: 15px; /* Espacio interior */
+}
+
+.card-title {
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 22px; /* Tamaño de fuente */
+    color: #074f5f; /* Color del texto */
+    margin-bottom: 10px; /* Espacio inferior */
+}
+
+.card-text {
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 16px; /* Tamaño de fuente */
+    line-height: 1.6; /* Altura de línea */
+    color: #333; /* Color del texto */
+    margin-bottom: 15px; /* Espacio inferior */
+}
+
+.btn-primary {
+    display: inline-block; /* Bloque en línea */
+    font-family: 'Arial', sans-serif; /* Tipo de fuente */
+    font-size: 16px; /* Tamaño de fuente */
+    color: #ffffff; /* Color del texto */
+    background-color: #074f5f; /* Color de fondo */
+    padding: 10px 20px; /* Espacio interior */
+    text-decoration: none; /* Sin subrayado */
+    border-radius: 4px; /* Bordes redondeados */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transiciones */
+}
+
+.btn-primary:hover {
+    background-color: #053a46; /* Color de fondo al pasar el mouse */
+    color: #ffffff; /* Color del texto al pasar el mouse */
 }
 
 footer{
@@ -217,7 +413,7 @@ article-item .image .img{
 
 /* Noticias */
 .title{
-    color: #b7812a;
+    color: #074f5f;
     letter-spacing: 1px;
     font-size: 35px;
     margin-bottom: 10px;
@@ -225,13 +421,14 @@ article-item .image .img{
     text-align: center;
 }
 
-.card-title{
-    color: #b7812a;
-    letter-spacing: 1px;
-    font-size: 35px;
-    margin-bottom: 10px;
-    margin-top: 5px;
-    text-align: center;
+.card-title {
+    color: #074f5f; /* Color del texto */
+    letter-spacing: 1px; /* Espaciado entre letras */
+    font-size: 35px; /* Tamaño de la fuente */
+    margin-bottom: 10px; /* Margen inferior */
+    margin-top: 5px; /* Margen superior */
+    text-align: center; /* Alineación del texto */
+    text-decoration: underline; /* Subrayado */
 }
 
 .card-body
@@ -253,7 +450,14 @@ article-item .image .img{
     font-size: 16px; /* Tamaño de fuente */
     line-height: 1.6; /* Altura de línea */
     color: #333; /* Color de texto */
-    text-align: center;
+    text-align: justify; /* Alineación del texto */
+    padding: 10px; /* Espacio interior */
+    margin: 15px; /* Espacio exterior */
+    background-color: #f9f9f9; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra */
+    border: 1px solid #ddd; /* Borde */
+    transition: transform 0.2s, box-shadow 0.2s; /* Transiciones */
 }
 
 /* Estilos para el formulario */

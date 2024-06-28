@@ -8,17 +8,17 @@ from .forms import InscripcionForm
 
 
 def carrerasListas(request):
-    # Fetch all carreras from the database
+    # Obtener todas las carreras de la base de datos
     carreras = Carreras.objects.all()
-    # Render the carreras list template with the carreras data
+    # Renderizar la plantilla de la lista de carreras con los datos de las carreras
     return render(request, 'carreras/carreras.html', {'carreras': carreras})
 
 def carrerasDetalles(request, id):
-    # Fetch carrera details by ID or return 404 if not found
+    # Obtener detalles de la carrera por ID o devolver 404 si no se encuentra
     carrera = get_object_or_404(Carreras, id=id)
-    # Render the carrera details template with the carrera data
-    
+    # Renderizar la plantilla de detalles de la carrera con los datos de la carrera
     return render(request, 'carreras/carrerasDetalles.html', {'DetalleCarrera': carrera})
+
 
 
 @login_required

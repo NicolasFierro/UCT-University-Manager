@@ -1,24 +1,25 @@
-{% extends 'layout/layout.html' %} 
+{% extends 'layout/layout.html' %}  {# Hereda el layout base para esta página #}
 
-{% block title %}Crear Usuario{% endblock %}  
+{% block title %}Crear Usuario{% endblock %}  {# Define el título de la página #}
 
-{% block content %} 
+{% block content %}  {# Inicia la sección de contenido específica de esta página #}
 
-  <h1>Crear Usuario</h1> 
+  <h1>Crear Usuario</h1>  {# Encabezado principal de la página #}
   <br>
 
+  <!-- Formulario para crear un nuevo usuario -->
   <form method="post">  
-
-    {% csrf_token %}
-    
-    {{form}}
-    <input type="submit" value="Crear Usuario">
-    
+    {% csrf_token %}  {# Añade un token CSRF para proteger el formulario contra ataques CSRF #}
+    {{form}}  {# Renderiza el formulario proporcionado por Django #}
+    <input type="submit" value="Crear Usuario">  {# Botón para enviar el formulario y crear el usuario #}
   </form>
+
+  <!-- Enlace para registrarse como profesor -->
   <div class="container-register">
-    <a class="button-register" href={% url "postular_profesor" %}>Quieres ser profesor registrate aqui</a>
+    <a class="button-register" href={% url "postular_profesor" %}>Quieres ser profesor registrate aqui</a>  {# Botón con enlace a la página de registro para profesores #}
   </div>
 
-{% endblock %}
+{% endblock %}  {# Termina la sección de contenido específica de esta página #}
+
 
 

@@ -1,8 +1,7 @@
 {% extends 'layout/layout.html' %}  {# Hereda el layout base para esta página #}
-{% load static %}  
+{% load static %}  {# Carga de archivos estáticos #}
 
-
-{% block content %}
+{% block content %}  {# Inicio del bloque de contenido #}
 
 <!DOCTYPE html>
 <html lang="es">
@@ -11,9 +10,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Lista de Materias</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">  {# Enlace a una hoja de estilo estática #}
     <style>
         body {
             padding: 20px;
+            background-color: #8fb6bb;
         }
         h1, p {
             text-align: center;
@@ -21,16 +22,37 @@
         table {
             width: 100%;
             margin-top: 20px;
+            border-collapse: collapse;  {# Asegura que los bordes de la tabla se colapsen correctamente #}
         }
         th, td {
             padding: 15px;
             text-align: left;
+            border: 1px solid #ddd;  {# Añade un borde a las celdas de la tabla #}
         }
         th {
-            background-color: #f4f4f4;
+            background-color: #f4f4f4;  {# Fondo para las cabeceras de la tabla #}
         }
         tr:nth-child(even) {
-            background-color: #f9f9f9;
+            background-color: #f9f9f9;  {# Color de fondo alterno para filas pares #}
+        }
+        .swal-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #0f5971;
+            color: white;
+            text-align: center;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;  {# Estilo para el botón de inscribirse #}
+        }
+        .swal-button:hover {
+            background-color: #0056b3;  {# Estilo al pasar el cursor sobre el botón #}
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;  {# Centro el contenido y limita el ancho máximo #}
         }
     </style>
 </head>
@@ -38,18 +60,16 @@
 <body>
     <main class="container">
         <div>
-
-            <a class="swal-button" href="{% url "inscripcion_materias" %}">Inscribirse las materias</a>
-
+            <a class="swal-button" href="{% url 'inscripcion_materias' %}">Inscribirse en las materias</a>  {# Enlace a la página de inscripción de materias #}
         </div>
         <h1>Lista de Materias</h1>
-        <p>Esta son las materias en las que te puedes inscribir</p>
+        <p>Estas son las materias en las que te puedes inscribir</p>
         <table class="table">
             <thead>
                 <tr>
                     <th>Nombre de la Materia</th>
                     <th>Descripción</th>
-                    <th>Carrera al cual pertenece</th>
+                    <th>Carrera a la cual pertenece</th>
                     <th>Profesor</th>
                 </tr>
             </thead>
@@ -60,22 +80,18 @@
                         <td>{{ materia.DescripcionMateria }}</td>
                         <td>{{ materia.carreras }}</td>
                         <td>{% if materia.profesor %}
-                            {{materia.profesor}}
-
+                            {{ materia.profesor }}
                             {% else %}
                             ninguno
-                            {% endif %}</td>
+                            {% endif %}
+                        </td>
                     </tr>
-                {% endfor %}
+                {% endfor %}  {# Itera sobre la lista de materias y genera una fila para cada una #}
             </tbody>
         </table>
-
-       
     </main>
-
 </body>
 
 </html>
 
-
-{% endblock content %}
+{% endblock content %}  {# Fin del bloque de contenido #}
